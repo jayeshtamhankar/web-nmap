@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nmap Scanner</title>
+</head>
+<body>
+    <h1>Nmap Scanner</h1>
+    <form action="/scan" method="POST">
+        <label for="target">Enter target IP or domain:</label>
+        <input type="text" name="target" id="target" required><br><br>
+        <button type="submit">Scan</button>
+    </form>
+
+    {% if machine_info or ports_info %}
+        <h2>Scan Results:</h2>
+        
+        <div>
+            <h3>Machine Information:</h3>
+            <pre>{{ machine_info }}</pre>
+        </div>
+
+        <div>
+            <h3>Open Ports and Versions:</h3>
+            <pre>{{ ports_info }}</pre>
+        </div>
+    {% endif %}
+</body>
+</html>
